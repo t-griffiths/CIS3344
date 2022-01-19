@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Cat Show</title>
+
+        <style> 
+            /* The HTML coders can place their overall style elsewhere, e.g., in an internal 
+            style sheet or in their own external style sheet. They can override any styles that 
+            they may not like from the slideShow style sheet - they just redefine those styles. */
+            h2{
+                color: white;
+            }
+            
+            body {
+                background-color:#707790;
+            }
+
+            .slideShow {
+                text-align:center;
+                font-weight:bold; 
+            }
+
+            .slideShow img { /* style images that are inside of class slideShow */
+                border: 3px inset graytext;
+                border-radius:8px;
+                width: 50%;
+                height: 50%;
+            }
+
+            .slideShow button {
+                width: 50px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            
+            .slideShow p{
+                color: hotpink;
+            }
+            
+            .SlideShowContainer{
+                display: flex;
+                justify-content: center;
+
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <h2> Cats and Cars</h2>
+        
+        <div class ="SlideShowContainer">
+        
+        <div class="slideShow" id="yourSlideId"></div>
+
+        <br/>
+        <br/>
+
+        <div class="slideShow" id="mySlideId"></div>
+        
+        </div>
+        <script src="js/MakeSlideShow.js"></script>
+        <script src="js/ajax.js"></script>
+        <script>
+
+            var myObjList = [
+                {src : "http://cis-linux2.temple.edu/~sallyk/pics_cat/pic1.png", caption: "Cute cat"},
+                {src: "http://cis-linux2.temple.edu/~sallyk/pics_cat/pic2.png", caption: "Good cat"},
+                {src: "http://cis-linux2.temple.edu/~sallyk/pics_cat/pic3.png", caption: "Small cats"}
+            ];
+
+            var mine = MakeSlideShow(myObjList);
+            document.getElementById("yourSlideId").appendChild(mine);
+            
+            /*  change the src attribute of the image element on the page (to be pic1.png, or pic2.png, etc)				
+                document.getElementById('pic').src = picObjList[picNum].fileName;
+
+                change the caption too
+                document.getElementById('caption').innerHTML = picObjList[picNum].caption;
+             */
+
+            // Example showing why you need to get the ss reference, so the HTML page can invoke 
+            // any public methods that may be available from the returned slide show object.
+            mine.setPicNum(0);
+
+            // create second slideshow object
+            ajax("json/cars.json", processCarList, document.getElementById("secondSlideId"));
+
+            function processCarList(carList) {
+
+                // MakeSlideShow expects a property called "image", so provide that... 
+                for (var i = 0; i < carList.length; i++) {
+                    carList[i].src = carList[i].photo;
+                    carList[i].caption = carList[i].make;
+                    console.log("image " + i + " " + carList[i].image);
+                }
+
+                var ss = MakeSlideShow(carList);
+                document.getElementById("mySlideId").appendChild(ss);
+
+                // Example showing why you need to get the ss reference, so the HTML page can invoke 
+                // any public methods that may be available from the returned slide show object.
+                ss.setPicNum(2);
+            }
+
+        </script>
+    </body>
+</html>
