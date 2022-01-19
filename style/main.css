@@ -1,0 +1,102 @@
+/* This rule makes everything use border-box sizing which is desireable. With border-box sizing, 
+        padding is not added to the width. For example, if you make the footer 100% and it has some padding, 
+        you'll see a horizontal because the footer becomes a little wider than 100%                            */
+* { 
+    box-sizing: border-box;
+}
+
+#topTitle{
+    padding-top: 5px;
+    text-align: center;
+    padding-bottom: 5px;
+    background-color: darkgreen;
+    color: white;
+
+}
+
+body { 
+    margin: 0;
+    background-color: rgb(198, 223, 153); 
+    color: black;  
+    font-family: Georgia, serif;
+    font-size:16px;
+}
+
+
+
+#titleNav {
+    
+    position: fixed; 
+    width: 100%;
+
+   
+    display:flex; 
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 0.5rem;
+    background-color: rgb(142, 209, 18);
+    
+    color: white; /*title text color */
+
+    /* give a little "3D"  effect to the edges of titleNav and footer */
+    box-shadow: 0px 0px 5px black;  
+    
+
+    background-color: rgb(142, 209, 18);
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+}
+
+
+#nav {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    white-space: nowrap;  /* don't allow nav links to wrap */
+
+}
+
+#content {
+    padding: 1rem;
+    padding-top:1rem; /* make sure fixed titleNav does not cover up any content */
+    padding-bottom: 2rem; /* make sure fixed footer doesn't cover up any content */
+    font-size: 1.15rem;
+    line-height: 2rem; 
+}
+
+#footer {
+    position: fixed;
+    bottom: 0px; 
+    left: 0px; 
+    z-index: 1; 
+    background-color: rgb(142, 209, 18);
+    color: white; 
+    width:100%;
+    text-align:center;
+    padding:8px;
+    box-shadow: 0px 0px 5px #888888;
+}
+
+.indent {
+    margin-left: 1.5rem;
+}
+
+pre {
+    margin-bottom:1.5rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+    line-height:1.25rem;
+    font-size: 0.95rem;
+
+    padding:0.5rem;
+    padding-left:0rem;
+    background-color: #CCCCDD; 
+
+    border-radius: 0.25rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.4);
+}
+

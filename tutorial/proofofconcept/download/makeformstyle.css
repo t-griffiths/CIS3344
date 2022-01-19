@@ -1,0 +1,102 @@
+/*Body Styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgreen;
+}
+
+/*Button on Page (not in form) */
+.makeformstyle .btnClass{
+    background-color: black;
+    color: white;
+        padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.makeformstyle .btnClass:hover{
+    background-color: #00ff21;
+    color: black;
+
+}
+
+/*Body content is id of div that gets made 
+in every new div we call the function in */
+.makeformstyle #bodyContent{
+    padding: 2rem;
+}
+
+/* modal div that opens on click */
+.makeformstyle .modal {
+    display: none; /* Starts hidden */
+    position: fixed; 
+    z-index: 1; /* Puts window in front of main page */
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Makes page light grey when form open */
+}
+
+/* div that contains the form */
+.modal-content {
+    background-color: #00ff21; /*boarder around form color */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Span button */
+.makeformstyle .close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Changes color of close button on hover */
+.makeformstyle .close:hover,
+.makeformstyle .close:focus {
+    color: #00ff21;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* input boxes */
+input.i {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box;
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+/*  resize: vertical; */
+}
+
+/* submit button on form */
+.makeformstyle .btnSubmit {
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.makeformstyle .btnSubmit:hover {
+    background-color: #00ff21;
+    color: black;
+}
+
+/* form div */
+.makeformstyle div.container {
+    text-align: center;
+    border-radius: 5px;
+    background-color: #6bc94f;
+    padding: 20px;
+}

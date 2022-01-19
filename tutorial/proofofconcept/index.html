@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tutorial Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-color: lightgoldenrodyellow;
+            }
+            h3{
+                color: black;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <h3>Descirption of Componenet</h3>
+            <p>My component is two different modal buttons that when pressed, open
+                their repsective form. Each form takes two different input values along
+                with an email address. It validates the user's inputs, then alerts the user
+                an alert depending on which form they are inputting to. It then saves the
+                inputted information to local storage and console logs the inputs</p>
+
+            <a href='tutorial.zip' download>Download Demo</a>
+            <br> 
+            <a href='download/tutorial.html' download>Tutorial Component</a>
+            <p>This is the java script that makes the content of my index page. 
+                <a href="https://jsfiddle.net/Ls5g9nk6/">Click Here to Try It</a></p>
+            <pre>
+            <code>
+                function makeContent(id, object) {
+                var tag = document.createElement("div");
+                tag.setAttribute('id', 'bodyContent');
+                var head = document.createElement("h2");
+                head.innerText = object.frmtitle;
+                tag.appendChild(head);
+                var button = document.createElement("button");
+                button.setAttribute('id', object.btnId);
+                button.setAttribute('class', 'btnClass');
+                button.innerText = object.btnInnerText;
+                tag.appendChild(button);
+                var mod1 = document.createElement("div");
+                mod1.setAttribute('id', object.modId);
+                mod1.setAttribute('class', 'modal');
+                tag.appendChild(mod1);
+
+                var element = document.getElementById(id);
+                element.appendChild(tag);
+
+                function formContent() {
+                //get element by id object.modId
+                //append to that element at end of function
+
+                var mod1con = document.createElement("div");
+                mod1con.setAttribute('id', object.modConId);
+                mod1con.setAttribute('class', 'modal-content');
+                mod1.appendChild(mod1con);
+                var span1 = document.createElement("span");
+                span1.setAttribute('class', 'close');
+                span1.innerText = "X";
+                mod1con.appendChild(span1);
+
+                var modDiv = document.getElementById(object.modId);
+                modDiv.appendChild(mod1con);
+                };
+            </code>
+            </pre>
+
+            <p>This is how I open and close my modal boxes. <a href="https://jsfiddle.net/vkmcpnb6/">Click Here to Try It</a></p>
+            <pre>
+            <code>
+                var modal = document.getElementById("myModal");
+                var btn = document.getElementById("myBtn");
+                var span = document.getElementsByClassName("close")[0];
+
+                btn.onclick = function () {
+                modal.style.display = "block";
+                };
+
+                span.onclick = function () {
+                modal.style.display = "none";
+                };                
+            </code>
+            </pre>
+
+            <p>This is my reusable function that creates inputs with specified text value, class, id, placeholder, and type <a href="https://jsfiddle.net/mxhtv2g3/">Click Here to Try It</a></p>
+            <pre>
+            <code>
+                function createInput(text, theClass, type, thePlaceholder, theId) {
+                var input = document.createElement("input");
+                type = "input";
+                input.setAttribute("type", type);
+                input.className = theClass;
+                input.textContent = text;
+                input.placeholder = thePlaceholder;
+                input.id = theId;
+                return input;
+                }
+            </code>
+            </pre>
+
+            <h3>W3 Schools Resources I used</h3>
+            <p><a href="https://www.w3schools.com/howto/howto_css_modals.asp">Modal Boxes</a></p>
+            <p><a href="https://www.w3schools.com/js/js_validation.asp">Form Validation</a></p>
+            <p><a href="https://www.w3schools.com/html/html_forms.asp">Making Forms</a></p>
+            
+        </div>
+    </body>
+</html>

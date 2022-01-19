@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+    <head>
+        <title>React Homework</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="style/clickSort.css" rel="stylesheet" type="text/css" />  
+        <link href="style/main.css" rel="stylesheet" type="text/css" />  
+        <link href="style/dropdown.css" rel="stylesheet" type="text/css" />  
+
+        <!-- Reference the React CDNs (Content Delivery Networks, basically just a hosted web resource) -->
+        <script crossorigin src='https://unpkg.com/react@16/umd/react.development.js' ></script>
+        <script crossorigin src='https://unpkg.com/react-dom@16/umd/react-dom.development.js' ></script>
+
+        <!-- By referencing the Babel CDN, we can use JSX (HTML tags in JavaScript) --> 
+        <script crossorigin src='https://unpkg.com/babel-standalone@6/babel.min.js' ></script>
+
+        <style>
+            .sportsTable {  
+                margin:2rem;  
+                font-size: 1rem;
+            }
+            .sportsTable th,.sportsTable td { 
+                padding-left: 0.25rem;  
+                padding-right: 0.25rem; 
+            }
+            .sportsTable th {    
+                background-color: #88BBCC;  
+                padding-top: 0.5rem; 
+                padding-bottom: 0rem; 
+            }
+            .sportsTable td {    
+                background-color: #DDDDDD;     
+            }
+            .alignRight {
+                text-align:right;
+            }
+            .alignLeft {
+                text-align: left;   
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="titleNav">
+            <div id="title">
+                React Website
+            </div>
+            <div id="nav">
+                <div class="dropdown">
+                    <span onclick="renderHome()">Home</span>
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader" >Search</div>
+                    <div class="dropContent">
+                        <span onclick="renderAjaxUserTable()">Live User List</span><br/>
+                        <span onclick="renderAjaxOtherTable()">Live Other List </span>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <span onclick="renderBlog()">Blog</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="content"></div>
+
+        <div id="footer">
+            Thomas Griffiths
+        </div>
+
+        <script src="js/reusable/dropDownFW.js"></script>
+        <script src="js/reusable/ajax_alt.js"></script>
+
+        <script type="text/babel" src="js/react_components/AjaxUserTable.js"></script>
+        <script type="text/babel" src="js/react_components/AjaxOtherTable.js"></script>
+        <script type="text/babel" src="js/react_components/ReactHome.js"></script>
+        <script type="text/babel" src="js/react_components/ReactBlog.js"></script>
+
+        <script type="text/babel">
+
+                        "use strict";
+
+                        dropDownFW({
+                            dropHeaderStyle: "dropHeader",
+                            dropContentStyle: "dropContent",
+                            showStyle: "show",
+                            hideStyle: "hide"
+                        });
+
+                        function renderHome() {
+                            ReactDOM.render(
+                                    <ReactHome />,
+                                    document.getElementById("content")
+                                    );
+                        }
+
+                        function renderBlog() {
+                            ReactDOM.render(
+                                    <ReactBlog />,
+                                    document.getElementById("content")
+                                    );
+                        }
+
+
+                        function renderUsersComingSoonProp() {
+                            ReactDOM.render(
+                                    <ComingSoon what="Users"/>,
+                                    document.getElementById("content")
+                                    );
+                        }
+
+                        function renderFunComingSoonProp() {
+                            ReactDOM.render(
+                                    <ComingSoon what="Fun"/>,
+                                    document.getElementById("content")
+                                    );
+                        }
+
+                        function renderAjaxUserTable() {
+                            ReactDOM.render(
+                                    <AjaxUserTable />,
+                                    document.getElementById("content")
+                                    );
+                        }
+
+                        function renderAjaxOtherTable() {
+                            ReactDOM.render(
+                                    <AjaxOtherTable />,
+                                    document.getElementById("content")
+                                    );
+                        }
+
+                        // at first rendering (before any clicking) show the home content.
+                        renderHome();
+
+        </script>
+    </body>
+</html>

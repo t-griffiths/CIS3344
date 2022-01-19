@@ -1,0 +1,105 @@
+/* Thomas Griffiths CIS3344 Homework 1*/
+
+/* nav bar https://www.w3schools.com/howto/howto_js_navbar_sticky.asp */
+/* three columns https://www.w3schools.com/howto/howto_css_three_columns.asp */
+
+html, body {  
+    margin:0; 
+    padding:0; 
+}
+
+body { 
+    background-color: rgb(198, 223, 153); 
+    color: black;  
+    font-family: Georgia, serif;
+    font-size:16px;
+}
+
+*{   /* keeps columns in good boxes */
+    box-sizing: border-box;
+}
+
+
+.column{
+    float: left;
+    padding: 10px;
+    height: 500px; 
+    padding-bottom: 10%;
+}
+
+
+.left{
+    width: 20%;
+    padding-right: 10%;
+}
+
+.right{
+    width: 20%;
+    padding-left: 10%;
+}
+
+.middle{
+    width: 50%;
+    padding-left: 10%;
+}
+
+.title{
+    padding-top: 5px;
+    text-align: center; 
+    padding-bottom: 10px;
+    background-image: url("pics/kale.jpeg");
+    color: white;
+}
+
+.nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(142, 209, 18);
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+}
+
+li{
+    float:left;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: black;
+}
+
+.active{
+    background-color: darkgreen;
+}
+
+
+#content {  
+    padding:12px;
+    padding-top: 20px; 
+    padding-bottom: 40px;
+}
+
+#footer { /* footer fixed, always at the bottom */
+    position: fixed;
+    bottom: 0px; 
+    left: 0px; 
+    z-index: 1; 
+    background-color: rgb(142, 209, 18);
+    color: white; 
+    width:100%;
+    text-align:center;
+    padding:8px;	
+}

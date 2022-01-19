@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- HTML comments must be like this... -->
+<html>
+    <head>
+        <title>Grocery Store Manager</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="icons/more_icons/Computer.png" />  
+
+        <!-- replace main.css with style.css to get style sheet from hw1
+        could maybe just use main.css then change it to look like style.css-->
+        <link href="style/main.css" rel="stylesheet" type="text/css" />  
+        <link href="style/NavRouter.css" rel="stylesheet" type="text/css" />  
+        <link href="style/obj.css" rel="stylesheet" type="text/css" /> 
+        <link href="style/vegStyle.css" rel="stylesheet" type="text/css" /> 
+        <link href="style/slideshowStyle.css" rel="stylesheet" type="text/css" />
+        <link href="style/clickSort.css" rel="stylesheet" type="text/css" />
+        <!-- reference the new js and css files. could probably take styling out of
+        vegetable content and use external style after referencing -->
+        <style>
+
+
+        </style>
+    </head>
+    
+    
+    
+        <div id ="topTitle">
+            <h1> Grocery Store Manager </h1>
+            <h3> Thomas Griffiths </h3>
+        </div>
+        <div id="titleNav">
+            <div id="nav">
+
+            </div>
+        </div>
+        
+        
+        <div id="content">
+
+            <!-- HTML comment: 
+                The content div is empty. It will get content "injected into it"
+                by the NavRouter component.
+            -->
+
+        </div> <!-- end of content area -->
+        <div id="footer">
+            [Thomas Griffiths]
+        </div>
+
+
+        <!-- Suggest you keep these in the same order as you see them in the NB project pane --> 
+        <script src="js/reusable/MakeNavRouter.js"></script>
+        <script src="js/reusable/MakeObj.js"></script>
+        <script src="js/reusable/MakeVegetable.js"></script>
+        <script src="js/reusable/MakeSlideShow.js"></script>
+        <script src="js/reusable/ajax.js"></script>
+        <script src="js/reusable/makeClickSortFilterTable.js"></script>
+        <script src="js/reusable/SortableTableUtils.js"></script>
+        
+
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/home.js"></script>
+        <script src="js/components/objContent.js"></script>
+        <script src="js/components/vegContent.js"></script>
+        <script src="js/components/slideshowContent.js"></script>
+        <script src="js/components/clickSortUserContent.js"></script>
+        <script src="js/components/clickSortVegetableContent.js"></script>
+        <script src="js/components/liveUsers.js"></script>
+        <script src="js/components/liveOther.js"></script>
+
+
+
+
+        <script>
+        
+            // Home | Account | Search | Tutorial | Blog
+
+            var myNavList = [
+
+                // action attribute is a function name - no quotes aroudnd home.
+                {linkText: "Home", linkURL: "#/home", action: home},
+                {
+                    header: "Account",
+                    subMenu: [
+
+                        // These links show up in nav bar but not functional because 
+                        // no linkURL and action.
+                        {linkText: "Register"},
+                        {linkText: "Log In"},
+                        {linkText: "Log Out"},
+                        {linkText: "Profile"}
+                    ]
+                },
+                {
+                    header: "Search",
+                    subMenu: [
+                        {linkText: "Objects", linkURL: "#/objects", action: objContent},
+                        {linkText: "JS Objects", linkURL: "#/vegetables", action: vegContent},
+                        {linkText: "Slide Show", linkURL: "#/slideshow", action: slideshowContent},
+                        {linkText: "User ClickSort", linkURL: "#/userclicksort", action: clickSortUserContent},
+                        {linkText: "Vegetable ClickSort", linkURL: "#/vegetableclicksort", action: clickSortVegetableContent},
+                        {linkText: "Live Users", linkURL: "#/liveUsersAPI", action: liveUsers},
+                        {linkText: "Live Other", linkURL: "#/otherAPI", action: liveOther},
+                        {linkText: "REACT", linkURL: "#/react", action: "React/reactIndex.html"}
+                    ]
+                },
+                {
+                    header: "Tutorial",
+                    subMenu: [
+                        {linkText: "Proposal", linkURL: "#/proposal", action: "tutorial/proofofconcept/proposal.pdf"},
+                        {linkText: "Proof Of Concept", linkURL: "#/tutPOC", action: "tutorial/proofofconcept/poc.html"},
+                        {linkText: "Demo", linkURL: "#/tutDemo", action: "tutorial/proofofconcept/download/tutorial.html"},
+                        {linkText: "Tutorial Home", linkURL: "#/tutHome", action: "tutorial/proofofconcept/index.html"}
+                    ]
+                },
+
+                // action attribute is a function name - no quotes around blog.
+                {linkText: "Blog", linkURL: "#/blog", action: blog}
+            ];
+
+            var myNav = MakeNavRouter({
+                navId: "nav",           // this is where the nav bar will be injected
+                navList: myNavList,     // the list of link objects (linkText, linkURL, actions)
+                contentId: "content",   // the id where content is to be injected
+                startLink: "#/home"     // routing will set this as the first link. 
+            });
+
+        </script>
+    
+</html>
